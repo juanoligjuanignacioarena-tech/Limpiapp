@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limpiapp - EcoRank</title>
+  <!-- Framework de diseño rápido -->
+  <script src="https://tailwindcss.com"></script>
+  <!-- Conexión con tu base de datos de Supabase -->
+  <script src="https://jsdelivr.net"></script>
+  <!-- Librería para activar la cámara y escanear códigos de barras -->
+  <script src="https://unpkg.com"></script>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen flex flex-col justify-between">
+
+  <!-- Encabezado de la App -->
+  <header class="bg-green-600 text-white p-4 text-center shadow-md">
+    <h1 class="text-2xl font-bold">♻️ Limpiapp</h1>
+    <p class="text-sm opacity-90">Escanéa códigos de barras y sumá puntos</p>
+  </header>
+
+  <!-- Contenido Principal / Ranking -->
+  <main class="flex-1 p-4 max-w-md mx-auto w-full space-y-6 overflow-y-auto mb-20">
+    
+    <!-- Zona del Escáner (Se enciende al presionar el botón) -->
+    <div id="seccion-escanner" class="hidden bg-white p-4 rounded-xl shadow-md text-center">
+      <h2 class="text-lg font-semibold mb-2">Apunta al código de barras</h2>
+      <video id="video" class="w-full rounded-lg border-2 border-green-500" autoplay playsinline></video>
+      <button id="btn-cerrar-camara" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg">Cancelar</button>
+    </div>
+
+    <!-- Tabla de Posiciones (Leaderboard) -->
+    <div class="bg-white p-4 rounded-xl shadow-md">
+      <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">🏆 Tabla de Posiciones</h2>
+      <ol id="lista-leaderboard" class="space-y-3 divide-y divide-gray-100">
+        <p class="text-gray-500 text-center py-4">Cargando ranking en tiempo real...</p>
+      </ol>
+    </div>
+  </main>
+
+  <!-- Botón de Acción Flotante -->
+  <div class="fixed bottom-6 left-0 right-0 flex justify-center">
+    <button id="btn-escanear" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full shadow-2xl text-lg flex items-center gap-2 transition-all transform hover:scale-105">
+      📷 Escanear Basura
+    </button>
+  </div>
+
+  <!-- Vinculación con tu archivo de funcionamiento -->
+  <script src="app.js"></script>
+</body>
+</html>
